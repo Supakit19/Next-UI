@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import { Rye, Mali } from "next/font/google"; // ใช้ฟอนต์ Rye
+import "./globals.css";
+
+// โหลดฟอนต์ Rye
+const rye = Rye({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-rye",
+});
+
+const mali = Mali({
+  subsets: ["latin"],
+  weight: ["400", "700"], // เพิ่มน้ำหนักที่ต้องการ
+  variable: "--font-mali",
+});
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${rye.variable} ${mali.variable} font-rye`}>
+        <div className="">{children}</div>
+      </body>
+    </html>
+  );
+}
